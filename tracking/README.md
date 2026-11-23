@@ -1,0 +1,3 @@
+# tracking
+
+Planned: an overhead-camera tracker that scores every run independently of the controller. An ArUco marker on the car's roof gives position and heading per frame (OpenCV); a homography from ≥4 tape-measured floor points maps pixels to meters, with lens distortion calibrated once from a checkerboard, and fixed floor markers detect if the camera moved. From the tracked path it will compute per-lap RMS cross-track error against the figure-8, lap time, and lap-to-lap spread. The camera rig must be rigid (e.g. four rods converging on the camera). Things to watch: frame rate (30 fps at 2 m/s is about 7 cm between frames, so use 60 fps at speed), marker height parallax, glare, and syncing with onboard logs through a shared start event. Not started yet (no car).
