@@ -22,11 +22,11 @@ Status: scaffold. To be filled during the hardware audit (see `hardware/audit.md
 |---|---|---|---|
 | Raspberry Pi 4 | TBD | eth to modem | works, main computer |
 | Raspberry Pi 5 | TBD | TBD | not using (see below) |
-| Depth camera | OAK-D Lite (from code) | usb | TBD |
+| Depth camera | OAK-D Lite (from code) | usb | works, 30 fps (11/24) |
 | Time-of-flight sensor | TBD | TBD | TBD |
 | IMU (unconfirmed) | MPU6050 (from code) | i2c | in the code, not checked on car |
 | Steering servo | none | - | car is diff drive, no servo |
-| Drive motor / ESC | 4x DC w/ encoders + h-bridge, models TBD | gpio (pins below), same side motors wired together | TBD |
+| Drive motor / ESC | 4x DC w/ encoders + h-bridge, models TBD | gpio (pins below), same side motors wired together | wheels spin (11/24, car up on a box) |
 | Battery | some ups board, TBD (old `battery/ups.py`) | TBD | TBD |
 
 Measured: wheelbase TBD, track width TBD, mass TBD.
@@ -106,6 +106,14 @@ Never write the passwords themselves in this file or the repo.
    ```
    then teleop (`scripts/teleop.sh` in the old repo)
 4. e-stop TBD. for now kill the launch / stop sending cmd_vel and it stops within 0.5 s
+
+- 11/24: got the wheels spinning with the car up on a box. havent driven it on the floor yet
+
+camera stream (11/24):
+- `~/mihir_ncl/stream_video/run.sh` on the pi (code is in this repo under `car/mihir_ncl/`)
+- starts the camera + a little mjpeg server, prints a link -> open it in a browser on the laptop
+- ctrl+c once stops everything
+- color image is 480x270 at 30 fps (old config shrinks it to go easy on the pi)
 
 ## Known issues
 
